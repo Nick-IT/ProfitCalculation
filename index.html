@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>鲁班利润测算</title>
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</head>
+<body>
+	<form class="mui-input-group">
+	    <div class="mui-input-row">
+	        <label>客单价</label>
+			<input id="kdj" type="text" class="mui-input-clear" placeholder="请输入客单价">
+	    </div>
+	    <div class="mui-input-row">
+	        <label>销量</label>
+	    	<input id="xl" type="text" class="mui-input-clear" placeholder="请输入销量">
+	    </div>
+		<div class="mui-input-row">
+		    <label>成本价</label>
+			<input id="cbj" type="text" class="mui-input-clear" placeholder="请输入成本价">
+		</div>
+		<div class="mui-input-row">
+		    <label>实际出单量</label>
+			<input id="sjcdl" type="text" class="mui-input-clear" placeholder="请输入实际出单量">
+		</div>
+		<div class="mui-input-row">
+		    <label>快递费</label>
+			<input id="kdf" type="text" class="mui-input-clear" placeholder="请输入快递费" value="6">
+		</div>
+		<div class="mui-input-row">
+		    <label>拒签快递费</label>
+			<input id="thkdf" type="text" class="mui-input-clear" placeholder="请输入拒签快递费" value="3">
+		</div>
+		<div class="mui-input-row">
+		    <label>签收率(%)</label>
+			<input id="qsl" type="text" class="mui-input-clear" placeholder="请输入签收率(%)">
+		</div>
+		<div class="mui-input-row">
+		    <label>拒签率(%)</label>
+			<input id="jql" type="text" class="mui-input-clear" placeholder="请输入拒签率(%)">
+		</div>
+		<div class="mui-input-row">
+		    <label>代收费(%)</label>
+			<input id="dsf" type="text" class="mui-input-clear" placeholder="请输入代收费(%)" value="1">
+		</div>
+		<div class="mui-input-row">
+		    <label>转化费</label>
+			<input id="zhf" type="text" class="mui-input-clear" placeholder="请输入转化成本">
+		</div>
+		<div class="mui-input-row">
+		    <label>返点(%)</label>
+			<input id="fd" type="text" class="mui-input-clear" placeholder="请输入返点(%)" value="0">
+		</div>
+		<div class="mui-input-row">
+		    <label>赔付</label>
+			<input id="pf" type="text" class="mui-input-clear" placeholder="请输入赔付" value="0">
+		</div>
+		<div class="mui-input-row">
+		    <label>假单率(%)</label>
+			<input id="jdl" type="text" class="mui-input-clear" placeholder="" disabled="disabled">
+		</div>
+		<div class="mui-input-row">
+		    <label>保本转化费</label>
+			<input id="bbzhf" type="text" class="mui-input-clear" placeholder="" disabled="disabled">
+		</div>
+		<div class="mui-input-row">
+		    <label>不可退保本转化费</label>
+			<input id="bktbbzhf" type="text" class="mui-input-clear" placeholder="" disabled="disabled">
+		</div>
+		<div class="mui-input-row">
+		    <label>可退货利润</label>
+			<input id="kthlr" type="text" class="mui-input-clear" placeholder="" disabled="disabled">
+		</div>
+		<div class="mui-input-row">
+		    <label>不可退利润</label>
+			<input id="bkthlr" type="text" class="mui-input-clear" placeholder="" disabled="disabled">
+		</div>
+	    <div class="mui-button-row">
+	        <button id="Calculation" type="button" class="mui-btn mui-btn-primary" style="width: 100%;">计算</button>
+	    </div>
+	</form>
+</body>
+<script type="text/javascript" charset="utf-8">
+	(function(){
+		$('#qsl').change(function(){
+			var qsl = $('#qsl').val();
+			var jql = 100 - qsl ;
+			$('#jql').val(jql);
+		});
+		$('#jql').change(function(){
+			var jql = $('#jql').val();
+			var qsl = 100 - qsl ;
+			$('#qsl').val(qsl);
+		});
+		$('#Calculation').click(function(){
+			var kdj = 0 ,xl = 0 ,cbj = 0,sjcdl = 0, kdf = 0 ,thkdf = 0 ,qsl = 0, jql = 0, dsf = 0 ; zhf = 0, fd = 0 ,pf = 0,jdl = 0,bbzhf = 0,bktbbzhf = 0,kthlr = 0,bkthlr = 0;
+			
+			if($('#kdj').val()){
+				kdj = parseFloat($('#kdj').val());
+			}else{
+				mui.alert('请输入客单价');
+				$('#kdj').focus();
+				return false;
+			}
+			
+			if($('#xl').val()){
+				xl = parseFloat($('#xl').val());
+			}else{
+				mui.alert('请输入销量');
+				$('#xl').focus();
+				return false;
+			}
+			
+			if($('#cbj').val()){
+				cbj = parseFloat($('#cbj').val());
+			}else{
+				mui.alert('请输入成本价');
+				$('#cbj').focus();
+				return false;
+			}
+			
+			if($('#sjcdl').val()){
+				sjcdl = parseFloat($('#sjcdl').val());
+			}else{
+				mui.alert('请输入实际出单量');
+				$('#sjcdl').focus();
+				return false;
+			}
+			
+			if($('#kdf').val()){
+				kdf = parseFloat($('#kdf').val());
+			}else{
+				mui.alert('请输入快递费');
+				$('#kdf').focus();
+				return false;
+			}
+			
+			if($('#thkdf').val()){
+				thkdf = parseFloat($('#thkdf').val());
+			}else{
+				mui.alert('请输入拒签快递费');
+				$('#thkdf').focus();
+				return false;
+			}
+			
+			if($('#qsl').val()){
+				qsl = parseFloat($('#qsl').val());
+			}else{
+				mui.alert('请输入签收率');
+				$('#qsl').focus();
+				return false;
+			}
+			
+			if($('#jql').val()){
+				jql = parseFloat($('#jql').val());
+			}else{
+				mui.alert('请输入拒签率');
+				$('#jql').focus();
+				return false;
+			}
+			
+			if($('#dsf').val()){
+				dsf = parseFloat($('#dsf').val());
+			}else{
+				mui.alert('请输入代收费');
+				$('#dsf').focus();
+				return false;
+			}
+			
+			if($('#zhf').val()){
+				zhf = parseFloat($('#zhf').val());
+			}else{
+				mui.alert('请输入转化费');
+				$('#zhf').focus();
+				return false;
+			}
+			
+			if($('#fd').val()){
+				fd = parseFloat($('#fd').val());
+			}else{
+				mui.alert('请输入返点');
+				$('#fd').focus();
+				return false;
+			}
+			
+			if($('#pf').val()){
+				pf = parseFloat($('#pf').val());
+			}else{
+				mui.alert('请输入赔付');
+				$('#pf').focus();
+				return false;
+			}
+			
+			jdl = (xl - sjcdl) / xl * 100; 
+			$('#jdl').val(parseFloat(jdl)); 
+			
+			var kthcb = xl*zhf+sjcdl*qsl/100*cbj+sjcdl*kdf+sjcdl*jql/100*thkdf+sjcdl*qsl/100*kdj*dsf/100-xl*zhf*fd/100-pf;
+			var bkthcb = xl*zhf+sjcdl*cbj+sjcdl*kdf+sjcdl*jql/100*thkdf+sjcdl*qsl/100*kdj*dsf/100-xl*zhf*fd/100-pf;
+			
+			kthlr = kdj*sjcdl*qsl/100 - kthcb;
+			$('#kthlr').val(kthlr); 
+			if(kthlr>0){
+				$('#kthlr').css('color','green');
+			}else{
+				$('#kthlr').css('color','red');
+			}
+			
+			bkthlr = kdj*sjcdl*qsl/100 - bkthcb;
+			$('#bkthlr').val(bkthlr); 
+			if(bkthlr>0){
+				$('#bkthlr').css('color','green');
+			}else{
+				$('#bkthlr').css('color','red');
+			}
+			
+			bbzhf = (kdj*sjcdl*qsl/100-sjcdl*qsl/100*cbj-sjcdl*kdf-sjcdl*jql/100*thkdf-sjcdl*qsl/100*kdj*dsf/100+pf)/(xl-xl*fd/100);
+			$('#bbzhf').val(bbzhf); 
+			if(bbzhf>zhf){
+				$('#bbzhf').css('color','green');
+			}else{
+				$('#bbzhf').css('color','red');
+			}
+			
+			bktbbzhf = (kdj*sjcdl*qsl/100-sjcdl*cbj-sjcdl*kdf-sjcdl*jql/100*thkdf-sjcdl*qsl/100*kdj*dsf/100+pf)/(xl-xl*fd/100); 
+			$('#bktbbzhf').val(bktbbzhf); 
+			if(bktbbzhf>zhf){
+				$('#bktbbzhf').css('color','green');
+			}else{
+				$('#bktbbzhf').css('color','red');
+			}
+		});
+	})()
+</script>
+</html>
