@@ -15,99 +15,51 @@
 	<form class="mui-input-group">
 	    <div class="mui-input-row">
 	        <label>客单价</label>
-			<div class="mui-numbox" data-numbox-step='10' data-numbox-min='0' data-numbox-max='10000'>
-			  <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
-			  <input id="kdj" class="mui-numbox-input" type="number" />
-			  <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
-			</div>
+			<input id="kdj" type="text" class="mui-input-clear" placeholder="请输入客单价">
 	    </div>
 	    <div class="mui-input-row">
 	        <label>销量</label>
-			<div class="mui-numbox" data-numbox-step='10' data-numbox-min='0' data-numbox-max='100000'>
-			  <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
-			  <input id="xl" class="mui-numbox-input" type="number" />
-			  <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
-			</div>
+	    	<input id="xl" type="text" class="mui-input-clear" placeholder="请输入销量">
 	    </div>
 		<div class="mui-input-row">
 		    <label>成本价</label>
-			<div class="mui-numbox" data-numbox-step='10' data-numbox-min='0' data-numbox-max='1000'>
-			  <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
-			  <input id="cbj" class="mui-numbox-input" type="number" />
-			  <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
-			</div>
+			<input id="cbj" type="text" class="mui-input-clear" placeholder="请输入成本价">
 		</div>
 		<div class="mui-input-row">
 		    <label>实际出单量</label>
-			<div class="mui-numbox" data-numbox-step='10' data-numbox-min='0' data-numbox-max='1000'>
-			  <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
-			  <input id="sjcdl" class="mui-numbox-input" type="number" />
-			  <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
-			</div>
+			<input id="sjcdl" type="text" class="mui-input-clear" placeholder="请输入实际出单量">
 		</div>
 		<div class="mui-input-row">
 		    <label>快递费</label>
-			<div class="mui-numbox" data-numbox-step='1' data-numbox-min='0' data-numbox-max='100'>
-			  <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
-			  <input id="kdf" class="mui-numbox-input" type="number" value="6" />
-			  <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
-			</div>
+			<input id="kdf" type="text" class="mui-input-clear" placeholder="请输入快递费" value="6">
 		</div>
 		<div class="mui-input-row">
 		    <label>拒签快递费</label>
-			<div class="mui-numbox" data-numbox-step='1' data-numbox-min='0' data-numbox-max='100'>
-			  <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
-			  <input id="thkdf" class="mui-numbox-input" type="number" value="3" />
-			  <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
-			</div>
+			<input id="thkdf" type="text" class="mui-input-clear" placeholder="请输入拒签快递费" value="3">
 		</div>
 		<div class="mui-input-row">
 		    <label>签收率(%)</label>
-			<div class="mui-numbox" data-numbox-step='10' data-numbox-min='0' data-numbox-max='100'>
-			  <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
-			  <input id="qsl" class="mui-numbox-input" type="number" />
-			  <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
-			</div>
+			<input id="qsl" type="text" class="mui-input-clear" placeholder="请输入签收率(%)">
 		</div>
 		<div class="mui-input-row">
 		    <label>拒签率(%)</label>
-			<div class="mui-numbox" data-numbox-step='10' data-numbox-min='0' data-numbox-max='100'>
-			  <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
-			  <input id="jql" class="mui-numbox-input" type="number" />
-			  <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
-			</div>
+			<input id="jql" type="text" class="mui-input-clear" placeholder="请输入拒签率(%)">
 		</div>
 		<div class="mui-input-row">
 		    <label>代收费(%)</label>
-			<div class="mui-numbox" data-numbox-step='10' data-numbox-min='0' data-numbox-max='100'>
-			  <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
-			  <input id="dsf" class="mui-numbox-input" type="number" />
-			  <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
-			</div>
+			<input id="dsf" type="text" class="mui-input-clear" placeholder="请输入代收费(%)" value="1">
 		</div>
 		<div class="mui-input-row">
 		    <label>转化费</label>
-			<div class="mui-numbox" data-numbox-step='10' data-numbox-min='0' data-numbox-max='100000'>
-			  <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
-			  <input id="zhf" class="mui-numbox-input" type="number" />
-			  <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
-			</div>
+			<input id="zhf" type="text" class="mui-input-clear" placeholder="请输入转化成本">
 		</div>
 		<div class="mui-input-row">
 		    <label>返点(%)</label>
-			<div class="mui-numbox" data-numbox-step='10' data-numbox-min='0' data-numbox-max='100'>
-			  <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
-			  <input id="fd" class="mui-numbox-input" type="number" value="0" />
-			  <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
-			</div>
+			<input id="fd" type="text" class="mui-input-clear" placeholder="请输入返点(%)" value="0">
 		</div>
 		<div class="mui-input-row">
 		    <label>赔付</label>
-			<div class="mui-numbox" data-numbox-step='10' data-numbox-min='0' data-numbox-max='100000'>
-			  <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
-			  <input id="pf" class="mui-numbox-input" type="number" value="0" />
-			  <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
-			</div>
+			<input id="pf" type="text" class="mui-input-clear" placeholder="请输入赔付" value="0">
 		</div>
 		<div class="mui-input-row">
 		    <label>假单率(%)</label>
