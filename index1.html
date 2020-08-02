@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>玩物得志利润测算</title>
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</head>
+<body>
+	<form class="mui-input-group">
+	    <div class="mui-input-row">
+	        <label>商品成本</label>
+			<input id="cb" type="text" class="mui-input-clear" placeholder="" value="">
+	    </div>
+	    <div class="mui-input-row">
+		    <label>运费</label>
+			<input id="yf" type="text" class="mui-input-clear" placeholder="" value="5.5">
+		</div>
+		<div class="mui-input-row">
+		    <label>包装费</label>
+			<input id="bzf" type="text" class="mui-input-clear" placeholder="" value="2.73">
+		</div>
+		<div class="mui-input-row">
+		    <label>服务费</label>
+			<input id="fwf" type="text" class="mui-input-clear" placeholder="" value="0.076">
+		</div>
+		<div class="mui-input-row">
+		    <label>鉴定服务费</label>
+			<input id="jdf" type="text" class="mui-input-clear" placeholder="" value="4">
+		</div>
+		<div class="mui-input-row">
+		    <label>利润</label>
+			<input id="lr" type="text" class="mui-input-clear" placeholder="" value="20">
+		</div>
+		<div class="mui-input-row">
+		    <label>建议售价</label>
+			<input id="jysj" type="text" class="mui-input-clear" placeholder="" disabled="disabled">
+		</div>
+	    <div class="mui-button-row">
+	        <button id="Calculation" type="button" class="mui-btn mui-btn-primary" style="width: 100%;">计算</button>
+	    </div>
+	</form>
+</body>
+<script type="text/javascript" charset="utf-8">
+	(function(){
+		$('#Calculation').click(function(){
+			var cb = parseFloat($('#cb').val());
+			var yf = parseFloat($('#yf').val());
+			var bzf = parseFloat($('#bzf').val());
+			var fwf = parseFloat($('#fwf').val());
+			var jdf = parseFloat($('#jdf').val());
+			var lr = parseFloat($('#lr').val());
+			var zj = parseFloat(cb+yf+lr+bzf+jdf);
+			var ysj = parseFloat(zj+zj*fwf);
+			$('#jysj').val(ysj);
+		});
+	})()
+</script>
+</html>
