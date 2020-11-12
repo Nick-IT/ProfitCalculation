@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>翡翠价格评估测算</title>
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</head>
+<body>
+	<form class="mui-input-group">
+		<div class="mui-input-row">
+	        <span class="mui-badge mui-badge-danger" style="font-size: 20px;padding: 10px 84px;">仅做评估预算参考，非绝对!</span>
+	    </div>
+	    <div class="mui-input-row">
+	        <label>款式</label>
+	    	<select class="mui-btn mui-btn-block" style="width: 65%" id="zd">
+				<option value="0">手镯</option>
+				<option value="1">挂件(4*6*08)</option>
+				<option value="2">戒面</option>
+			</select>
+	    </div>
+		<div class="mui-input-row">
+	        <label>种底(白底)</label>
+	    	<select class="mui-btn mui-btn-block" style="width: 65%" id="zd">
+				<option value="0">玻璃种</option>
+				<option value="1">高冰种</option>
+				<option value="2">冰种</option>
+				<option value="3">糯冰种</option>
+				<option value="4">糯化</option>
+				<option value="5">糯种</option>
+				<option value="6">种水料</option>
+				<option value="7">芙蓉种</option>
+				<option value="8">豆种</option>
+			</select>
+	    </div>
+		<div class="mui-input-row">
+	        <label>颜色</label>
+	    </div>
+		<div class="mui-input-row">
+	        <label>底子</label>
+	    </div>
+	    <div class="mui-input-row">
+	        <label>水头</label>
+	    </div>
+	    <div class="mui-input-row">
+	        <label>大小</label>
+	    </div>
+	    <div class="mui-input-row">
+	        <label>工艺</label>
+	    </div>
+	    <div class="mui-input-row">
+	        <label>稀有</label>
+	    </div>
+	    <div class="mui-button-row">
+	        <button id="Calculation" type="button" class="mui-btn mui-btn-primary" style="width: 100%;">估算</button>
+	    </div>
+	</form>
+</body>
+<script type="text/javascript" charset="utf-8">
+	(function(){
+		$('#Calculation').click(function(){
+			var cb = parseFloat($('#cb').val());
+		});
+	})()
+</script>
+</html>

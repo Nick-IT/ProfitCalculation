@@ -19,19 +19,19 @@
 	    </div>
 	    <div class="mui-input-row">
 		    <label>运费</label>
-			<input id="yf" type="text" class="mui-input-clear" placeholder="" value="5.5">
+			<input id="yf" type="text" class="mui-input-clear" placeholder="" value="1.5">
 		</div>
 		<div class="mui-input-row">
 		    <label>包装费</label>
-			<input id="bzf" type="text" class="mui-input-clear" placeholder="" value="2.73">
+			<input id="bzf" type="text" class="mui-input-clear" placeholder="" value="4.5">
 		</div>
 		<div class="mui-input-row">
 		    <label>服务费</label>
-			<input id="fwf" type="text" class="mui-input-clear" placeholder="" value="0.076">
+			<input id="fwf" type="text" class="mui-input-clear" placeholder="" value="0.126">
 		</div>
 		<div class="mui-input-row">
 		    <label>鉴定服务费</label>
-			<input id="jdf" type="text" class="mui-input-clear" placeholder="" value="4">
+			<input id="jdf" type="text" class="mui-input-clear" placeholder="" value="8">
 		</div>
 		<div class="mui-input-row">
 		    <label>利润</label>
@@ -39,7 +39,7 @@
 		</div>
 		<div class="mui-input-row">
 		    <label>建议售价</label>
-			<input id="jysj" type="text" class="mui-input-clear" placeholder="" disabled="disabled">
+			<input id="jysj" type="text" class="mui-input-clear" placeholder="">
 		</div>
 	    <div class="mui-button-row">
 	        <button id="Calculation" type="button" class="mui-btn mui-btn-primary" style="width: 100%;">计算</button>
@@ -56,8 +56,19 @@
 			var jdf = parseFloat($('#jdf').val());
 			var lr = parseFloat($('#lr').val());
 			var zj = parseFloat(cb+yf+lr+bzf+jdf);
-			var ysj = parseFloat(zj+zj*fwf);
+			var ysj = parseFloat(zj/(1-fwf));
 			$('#jysj').val(ysj);
+		});
+		$('#jysj').change(function(){
+			var cb = parseFloat($('#cb').val());
+			var yf = parseFloat($('#yf').val());
+			var bzf = parseFloat($('#bzf').val());
+			var fwf = parseFloat($('#fwf').val());
+			var jdf = parseFloat($('#jdf').val());
+			var jysj = parseFloat($('#jysj').val());
+			var zj = parseFloat(cb+yf+bzf+jdf);
+			var lr = parseFloat(jysj - zj - (jysj*fwf));
+			$('#lr').val(lr);
 		});
 	})()
 </script>
